@@ -1,0 +1,66 @@
+<h1>The Basics</h1>
+
+<div class="container" style="display: flex;">
+
+    <div class="col" style="flex: 1; font-size:24px;">
+        <p><u>Hartree-Fock (HF)</u></p>
+        <div style="height:75px;">\[
+            \ket{\text{HF}} = e^{-\kappa} \ket{0}
+            \]</div>
+
+        <p>Optimize the orbitals (\( \kappa \))</p>
+
+    </div>
+
+    <div class="col" style="flex: 1; font-size:24px;">
+        <span class="fragment" data-fragment-index="2">
+            <p><u>Configuration Interaction (CI)</u></p>
+            <div style="height: 75px;">\[
+                \ket{\text{CI}} = \sum_i C_i\ket{i}
+                \]
+            </div>
+
+            <p>Optimize CI coefficients (\( C_i \))</p>
+
+        </span>
+    </div>
+
+
+</div>
+
+<style>
+    .det {
+        height: 160px;
+    }
+</style>
+
+<img src="figs/CI_dets/det_HF.png" class="det">
+<span class="fragment" data-fragment-index=3>
+    <img src="figs/CI_dets/det_i.png" class="det">
+    <img src="figs/CI_dets/det_j.png" class="det">
+    <img src="figs/CI_dets/det_k.png" class="det">
+</span>
+
+<div class="fragment" data-fragment-index=1 style="font-size: 0.75em;">
+    <p>Single reference fails for:</p>
+    <ul>
+        <li>Bond-breaking</li>
+        <li>Transition metals</li>
+    </ul>
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>Almost all methods in quantum chemistry are based on Hartee-Fock theory in some way. Here we approximate the
+            wave function, psi on the previous slide, as a single configuration. Here a configuration is a particular
+            way of putting electrons in orbitals and an example is shown here at the bottom. For HF wave functions we
+            optimize the orbitals to get the best wave function.</li>
+        <li>I mentioned earlier that the molecules that we want to study are challenging but I didn't say how. It turns
+            out that for these systems and many others, one configuration isn't enough to accurately describe the
+            system. To include more we can express our wave function as a linear combination of configurations. We call
+            this configuration interaction or CI wave function. Here the orbitals are fixed and we optimize the
+            coefficients of the linear expansion. Here's a visual representation of what that expansion might look like
+            for our little toy system.
+        </li>
+    </ul>
+</aside>

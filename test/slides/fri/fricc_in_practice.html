@@ -1,0 +1,15 @@
+<h1>FRI-CC in Practice</h1>
+
+<div class="r-stack">
+    <p class="fragment fade-out" data-fragment-index=1>Deterministic CC</p>
+    <p class="fragment fade-in" data-fragment-index=1>FRI-CC</p>
+</div>
+
+<ul>
+    <!-- <li>Run HF</li> -->
+    <li>Initialize \( t_i^a \) and \( t_{ij}^{ab} \)</li>
+    <li class="fragment" data-fragment-index="1">Compress \( t_{ij}^{ab} \), i.e. \( \Phi(t_{ij}^{ab}) \) </li>
+    <li>Plug into the nasty CCSD equations</li>
+    <li>Get new \( t_i^a \) and \( t_{ij}^{ab} \) and repeat (until energy, \( t_i^a \), and \( t_{ij}^{ab} \) converge)
+    </li>
+</ul>

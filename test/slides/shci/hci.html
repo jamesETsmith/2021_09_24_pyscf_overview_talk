@@ -1,0 +1,36 @@
+<h1>HCI: Variational Stage</h1>
+<div style="display: flex; align-items: center;">
+    <div class="col" style="font-size: 0.6em;">
+        <p>\[ \ket{\Psi_0^\mu}=\sum_{\ket{D_i}\in\mathcal{V}^\mu} c_i^\mu \ket{D_i} \]</p>
+
+        <p class="fragment">$$
+            \mathcal{C}^\mu (\epsilon_1) =
+            \big\{ \ket{D_a} ~\vert~ f^\mu (\ket{D_a}) > \epsilon_1 \big\}
+            $$</p>
+
+        <!-- <p class="fragment">Importance Criterion (i.e. add \( \ket{D_a} \) to \( \mathcal{V}^\mu \)?):</p> -->
+        <p class="fragment">$$
+            f_{\rm HCI}^\mu(\ket{D_a}) = \max_{ \ket{D_i} \in \mathcal{V}^\mu} \left|
+            H_{ai} c^\mu_i\right|
+            $$</p>
+        <p class="fragment">Simple criteria means adding to \( \mathcal{V} \) is fast</p>
+        <p class="fragment">The number of connected determinants is <em>BIG</em> \( O(N_{\mathcal{V}} N_e^2
+            N_{unocc}^2)
+            \) </p>
+        <p class="fragment">If we sort the \( \hat{H} \) elements, when we perform \( \hat{H} \mathcal{V} \), we can
+            iterate
+            through the \( \hat{H} \) elements until they drop below a threshhold and then
+            <b><em><u>STOP</u></em></b>
+        </p>
+
+    </div>
+
+    <div class="col">
+        <!-- <img class="fragment fade-out" style="height: 200px;" src="../../figs/hciscf/hci_a.png"> -->
+        <img class="fragment" style="height: 300px;" src="figs/SCI/hci_c_new.png">
+
+        <p class="fragment" style="font-size: 0.75em;">Repeat this procedure until the energy and number of
+            determinants
+            converges</p>
+    </div>
+</div>

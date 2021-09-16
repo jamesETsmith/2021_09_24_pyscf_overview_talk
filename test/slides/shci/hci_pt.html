@@ -1,0 +1,89 @@
+<section>
+
+    <h1>HCI: Perturbative Stage</h1>
+
+    <div class="r-stack">
+        <span style="font-size: 0.7em;" class="fragment fade-out" data-fragment-index="0">
+            $$
+            E_2 =
+            \sum_{D_{a} \in \mathcal{C}} \frac{1}{E_{a}-E_{0}}
+            \left(
+            \sum_{D_{i} \in \mathcal{V}} H_{a i} c_{i} \right)^2
+            $$
+        </span>
+        <span style="font-size: 0.7em;" class="fragment fade-in-then-out" data-fragment-index="0">
+            $$
+            E_2 =
+            \sum_{D_{a} \in \mathcal{C}} \frac{1}{E_{a}-E_{0}}
+            \left(
+            \sum_{D_{i} \in \mathcal{V}}^{
+            \colorbox{yellow}{ ( \( \epsilon_2 \) ) }
+            }
+            H_{a i} c_{i} \right)^2
+            $$
+        </span>
+        <span style="font-size: 0.7em;" class="fragment" data-fragment-index="1">
+            $$
+            E_2 =
+            \sum_{D_{a} \in \mathcal{C}} \frac{1}{E_{a}-E_{0}}
+            \left(
+            \sum_{D_{i} \in \mathcal{V}_{
+            \colorbox{yellow}{stoc.}
+            }}
+            ^{(\epsilon_2)} H_{a i} c_{i} \right)^2
+            $$
+        </span>
+    </div>
+
+    <div class='r-stack' style="font-size: 0.6em;">
+
+        <p class="fragment fade-out" data-fragment-index="0">
+            Connected determinant space is too big! \( \hat{V}\ket{\Psi_0} \sim O(N_{\mathcal{V}} N_e^2 N_{unocc}^2)
+            \rightarrow 10^{12} \)
+        </p>
+        <p class="fragment fade-in-then-out" data-fragment-index="0">
+            We can include only the "important" configurations like we did in the variational stage
+        </p>
+        <p class="fragment" data-fragment-index="1">
+            We can calculate \( E_2(\epsilon_2) \) stochastically sampling the variational space i.e. \(
+            \mathcal{V}_{stoc.} \subset \mathcal{V} \)
+        </p>
+    </div>
+
+
+
+    </span>
+
+    <div class="r-stack">
+        <img style="height:400px;" src="figs/SCI/hci_pt.png" class="fragment fade-out" data-fragment-index="0">
+        <img style="height:400px;" src="figs/SCI/hci_pt_screen.png" class="fragment fade-in-then-out"
+            data-fragment-index="0">
+        <img style="height:400px;" src="figs/SCI/hci_pt_screen_sample.png" class="fragment" data-fragment-index="1">
+    </div>
+
+</section>
+
+<section>
+    <h1>Reducing Stochastic Noise</h1>
+
+    <span style="font-size: 0.75em;">
+        $$
+        E_2 =
+        \sum_{D_{a} \in \mathcal{C}} \frac{1}{E_{a}-E_{0}}
+        \left(
+        \sum_{D_{i} \in \mathcal{V}_{stoc. }}
+        ^{(\epsilon_2)} H_{a i} c_{i} \right)^2
+        $$
+    </span>
+
+    <div style="font-size: 0.75em;">
+        <p class="fragment">We can reduce the stochastic noise by calculating as much of \( E_2
+            \)
+            deterministically as possible</p>
+
+        <span class="fragment">
+            $$
+            E_2 = E_2^D (\epsilon_2^D) + (E_2^S (\epsilon_2) - E_2^S (\epsilon_2^D))
+            $$
+    </div>
+</section>

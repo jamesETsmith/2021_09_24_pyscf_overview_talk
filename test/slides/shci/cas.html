@@ -1,0 +1,36 @@
+<h1>Complete Active Space (CAS)</h1>
+
+<div style="display:table;">
+    <div style="display: table-cell;vertical-align: middle; font-size: 0.75em;">
+        <ul>
+            <li>We can perform HCI on a <em>subset</em> of the orbitals, called the <span
+                    style="color:red;">active</span> orbitals</li>
+
+            <li class="fragment">Complete active space (CAS) methods</li>
+            <!-- <li class="fragment">CAS-CI <span>&#8594;</span> CASCI</li> -->
+            <li class="fragment">CAS(3e,5o) means correlating 3 electrons in 5 orbitals</li>
+            <li class="fragment">Cost scales exponentially with the size of the active space <u>and not</u> the
+                system</li>
+            <li class="fragment">Now we can treat much larger systems</li>
+            <li class="fragment">We can (and will in this work) optimize orbitals for the <em><b><u>set</u></b></em> of
+                determinants
+            </li>
+
+
+        </ul>
+    </div>
+    <div style="display: table-cell;vertical-align: middle; font-size: 0.75em;">
+
+        <img style="width: 600px;" src="figs/SCI/mo.png">
+    </div>
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>So rather than doing FCI on all the orbitals we can perform it on a <em>subset</em>.</li>
+        <li>We start by dividing all of our orbitals into three categories: inactive, which are always doubly occupied,
+            virtual, which are always unoccupied, and active which can have any occupation between 0 and 2.</li>
+        <li>The active orbitals here are the <em>important</em> ones.</li>
+        <li></li>
+    </ul>
+</aside>

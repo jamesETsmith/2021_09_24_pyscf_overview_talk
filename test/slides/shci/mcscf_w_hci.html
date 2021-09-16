@@ -1,0 +1,124 @@
+<section>
+    <h1>CASSCF with HCI</h1>
+    <span style="font-size: 0.75em;">
+        <div>
+            <p>To optimize orbitals, we rely on the Hellmann-Feynam Thm. (HFT):</p>
+            $$
+            \frac{\partial E}{\partial \kappa} =
+            \bra{\Psi_0} \frac{\partial H}{\partial \kappa} \ket{\Psi_0}
+            $$
+            Where \( \kappa \) parametrizes our orbitals
+
+        </div>
+        <br>
+        <div class="fragment">
+            HFT requires that \( \ket{\Psi_0} \) is variational, which isn't true if we include the PT correction (\(
+            E_2
+            \))
+        </div>
+        <br>
+        <div class='fragment'>
+            Enforce variationality of \( E_{HCI} = E_0 + E_2 \)
+            $$
+            \frac{\partial E_{HCI}}{\partial \kappa} =
+            \bra{\Psi_0} \frac{\partial H}{\partial \kappa} \ket{\Psi_0} + ... (\text{lagrangian terms})
+            $$
+        </div>
+
+    </span>
+
+</section>
+<section>
+    <h1>The Gory Details</h1>
+    <span style="font-size: 0.75em;">
+        <!-- $$
+        H[\mathbf{d}; \mathbf{c}, \mathcal{V},
+        \mathcal{C}(\epsilon_2)]=\bra{\Psi_1^{\epsilon_2} } \hat{H}_0-E_0 \ket{\Psi_1^{\epsilon_2}}
+        +2\bra{\Psi_1^{\epsilon_2} } \hat{V} \ket{\Psi_0}
+        $$ -->
+
+        <!-- $$
+        \ket{\Psi_1^{\epsilon_2}}=\sum_{a \in \mathcal{C}(\epsilon_2)} d_a \ket{D_a}
+        $$ -->
+
+        <p>The not-so-simple gradient</p>
+
+        $$
+        \frac{d E_{\mathrm{HCI}}}{d \mathbf{\kappa}}
+        = \frac{\partial E_{\mathrm{HCI}}}{\partial \mathbf{\kappa}}
+        + \frac{\partial E_{\mathrm{HCI}}}{\partial \mathbf{c}}\frac{d\mathbf{c}}{d \mathbf{\kappa}}
+        + \frac{\partial E_{\mathrm{HCI}}}{\partial \mathcal{E}_0}\frac{d\mathcal{E}_0}{d \mathbf{\kappa}}
+        + \frac{\partial E_{\mathrm{HCI}}}{\partial \mathbf{d}}
+        \colorbox{yellow}{ \( \frac{d\mathbf{d}}{d \mathbf{\kappa}} \)}
+        $$
+
+        <p>Use Lagrange multipliers to enforce variationality</p>
+
+        $$
+        \mathcal{L}[\mathbf{\kappa}, \mathbf{c}, \mathcal{E}_0, \mathbf{d}, \mathbf{\lambda}_\text{c},
+        \mathbf{\lambda}_\text{d}]
+        = E[\mathbf{\kappa}, \mathbf{c}, \mathcal{E}_0]
+        + H_{Hyll.}[\mathbf{\kappa}, \mathbf{c}, \mathbf{d}]
+        + \mathbf{\lambda}_\text{c}^\dagger \frac{\partial E}{\partial \mathbf{c}^\dagger }
+        + \mathbf{\lambda}_\text{d}^\dagger \frac{\partial H_{Hyll.}}{\partial \mathbf{d}^\dagger }
+        $$
+
+        $$
+        \frac{d E_{\mathrm{HCI}}}{d \mathbf{\kappa} }
+        = \frac{d \mathcal{L}}{d \mathbf{\kappa} }
+        = \frac{\partial \mathcal{L}}{\partial \mathbf{\kappa}}
+        $$
+    </span>
+</section>
+
+<section>
+    <h1>Gory Details Cont.</h1>
+    <span style="font-size: 0.75em;">
+        $$
+        \frac{\partial \mathcal{L}}{\partial \mathbf{d}}=\frac{\partial H_{Hyll.}}{\partial
+        \mathbf{d} } + \mathbf{\lambda}_\text{d}^\dagger \frac{\partial^2 H_{Hyll.}}{\partial \mathbf{d}
+        \partial\mathbf{d}^\dagger }=0
+        $$
+
+        $$
+        \frac{\partial \mathcal{L}}{\partial \mathbf{c}} =
+        \frac{\partial E}{\partial \mathbf{c} } +
+        \frac{\partial H_{Hyll.}}{\partial \mathbf{c} } +
+        \mathbf{\lambda}_\text{c}^\dagger \frac{\partial^2 E}{\partial \mathbf{c} \partial \mathbf{c}^\dagger } +
+        \mathbf{\lambda}_\text{d} \frac{\partial^2 H_{Hyll.}}{ \partial \mathbf{c}\partial \mathbf{d}^\dagger }
+        = 0
+        $$
+
+        $$
+        \frac{\partial H_{Hyll.}}{\partial \mathbf{c} } +
+        \mathbf{\lambda}_\text{c}^\dagger \frac{\partial^2 E}{\partial \mathbf{c}\partial \mathbf{c}^\dagger } = 0,
+        $$
+
+
+    </span>
+</section>
+
+<section>
+    <h1>Gory Details Cont.</h1>
+    <span style="font-size: 0.75em;">
+        $$
+        \frac{\partial \mathcal{L}}{\partial \mathbf{\kappa} }
+        =
+        \mathbf{c}^\dagger\frac{\partial H_0}{\partial \mathbf{\kappa} }\mathbf{c}
+        + \mathbf{d}^\dagger\frac{\partial H_0}{\partial \mathbf{\kappa} }\mathbf{d}
+        + 2\mathbf{d}^\dagger\frac{\partial V}{\partial \mathbf{\kappa} }\mathbf{c}
+        + 2\mathbf{\lambda}_\text{c}^\dagger\frac{\partial H_0}{\partial \mathbf{\kappa} }\mathbf{c} \\
+        $$
+
+        $$
+        \frac{\partial \mathcal{L}}{\partial \mathbf{\kappa} }
+        =
+        \sum_{ijkl}\frac{\partial H_{0,ijkl}}{\partial \mathbf{\kappa} } \Gamma_{ijkl}^{\text{c},\text{c}}
+        + \frac{\partial H_{0,ijkl}}{\partial \mathbf{\kappa} } \Gamma_{ijkl}^{\text{d},\text{d}}
+        + 2\frac{\partial V_{ijkl}}{\partial \mathbf{\kappa} } \Gamma_{ijkl}^{\text{d},\text{c}}
+        + 2\frac{\partial H_{0,ijkl}}{\partial \mathbf{\kappa} } \Gamma_{ijkl}^{\lambda_\text{c},\text{c}}
+        $$
+
+        <p>In practice, we can consolidate all of the 2-RDM terms into a "relaxed" 2-RDM</p>
+    </span>
+</section>

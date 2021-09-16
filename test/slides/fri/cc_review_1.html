@@ -1,0 +1,111 @@
+<section>
+    <h1>Coupled Cluster Review</h1>
+
+    <p>Define a wave function</p>
+
+    <div style="font-size: 0.65em;">
+        $$
+        \ket{\Psi} = e^{\hat{T}} \ket{\text{HF}} \quad\quad \hat{T} = \hat{T}_1 + \hat{T}_2
+        $$
+    </div>
+
+
+    <div class="r-stack" style="font-size: 0.65em;">
+        <div class="fragment fade-out" data-fragment-index=2>
+            $$
+            \hat{T}_1 = \sum_{ai} t_i^a a^\dagger_a a_i \quad\quad \hat{T}_2 = \frac{1}{4} \sum_{aibj} t_{ij}^{ab}
+            a^\dagger_a a_i
+            a^\dagger_b a_j
+            $$
+        </div>
+        <div class="fragment fade-in" data-fragment-index=2>
+            $$
+            \hat{T}_1 = \sum_{ai}
+            \bbox[5px,border:3px solid red]{ t_i^a }
+            a^\dagger_a a_i
+            \quad\quad
+            \hat{T}_2 = \frac{1}{4} \sum_{aibj}
+            \bbox[5px,border:3px solid red]{ t_{ij}^{ab} }
+            a^\dagger_a a_i a^\dagger_b a_j
+            $$
+        </div>
+    </div>
+
+    <div class="fragment" data-fragment-index=1>
+        <p>Define an energy</p>
+
+        <div style="font-size: 0.65em;">
+            $$
+            E_{\text{HF}} + E_{\text{CCSD}} = \bra{\Psi} e^{-\hat{T}} \hat{H} e^{\hat{T}} \ket{\Psi}
+            $$
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h1>Coupled Cluster Review</h1>
+    <div class="r-stack">
+        <p class="fragment fade-out" data-fragment-index=1>To get an energy, we need to solve for \( t_i^a \) and \(
+            t_{ij}^{ab} \) </p>
+        <p class="fragment fade-in" data-fragment-index=2>\( a,b,e,f,... \) virtual, \( i,j,m,n,... \) occupied</p>
+    </div>
+
+    <div class="r-stack">
+        <div class="fragment fade-in-then-out" data-fragment-index=3 style="font-size: 0.65em;">
+            $$
+            \begin{aligned}
+            t_{i}^{a} D_{i}^{a}=& f_{i a}+\sum_{e} t_{i}^{e} \mathscr{F}_{a e}-\sum_{m} t_{m}^{a} \mathscr{F}_{m
+            i}+\sum_{m
+            e} t_{i m}^{a e} \mathscr{F}_{m e} \\
+            &-\sum_{n f} t_{n}^{f}\langle n a \| i f\rangle-\frac{1}{2} \sum_{m e f} t_{i m}^{e f}\langle m a \| e
+            f\rangle
+            \\
+            &-\frac{1}{2} \sum_{m e n} t_{m n}^{a e}\langle n m \| e i\rangle
+            \end{aligned}
+            $$
+        </div>
+        <div class="fragment fade-in-then-out" data-fragment-index=4 style="font-size: 0.6em;">
+            $$
+            \begin{aligned}
+            & t_{i j}^{a b} D_{i j}^{a b}=
+            \langle i j \| a b\rangle+P_{-}(a b) \sum_{e} t_{i j}^{a
+            e}\left(\mathscr{F}_{b e}-\frac{1}{2} \sum_{m} t_{m}^{b} \mathscr{F}_{m e}\right) \\
+            &-P_{-}(i j) \sum_{m} t_{i m}^{a b}\left(\mathscr{F}_{m j}+\frac{1}{2} \sum_{e} t_{j}^{e} \mathscr{F}_{m
+            e}\right) \\
+            &+\frac{1}{2} \sum_{m n} \tau_{m n}^{a b} \mathscr{W}_{m n i j} +
+            \frac{1}{2} \sum_{e f} \tau_{i j}^{e f} \mathscr{W}_{a b e f} \\
+            &+P_{-}(i j) P_{-}(a b) \sum_{m e}\left(t_{i m}^{a e} \mathscr{W}_{m b e j}-t_{i}^{e} t_{m}^{a}\langle m b
+            \| e
+            j\rangle\right) \\
+            &+P_{-}(i j) \sum_{e} t_{i}^{e}\langle a b \| e j\rangle-P_{-}(a b) \sum_{m} t_{m}^{a}\langle m b \| i
+            j\rangle
+            \end{aligned}
+            $$
+        </div>
+        <div class="fragment fade-in" data-fragment-index=5 style="font-size: 0.6em;">
+            $$
+            \begin{aligned}
+            & t_{i j}^{a b} D_{i j}^{a b}=
+            \langle i j \| a b\rangle+P_{-}(a b) \sum_{e} t_{i j}^{a
+            e}\left(\mathscr{F}_{b e}-\frac{1}{2} \sum_{m} t_{m}^{b} \mathscr{F}_{m e}\right) \\
+            &-P_{-}(i j) \sum_{m} t_{i m}^{a b}\left(\mathscr{F}_{m j}+\frac{1}{2} \sum_{e} t_{j}^{e} \mathscr{F}_{m
+            e}\right) \\
+            &+\frac{1}{2} \sum_{m n} \tau_{m n}^{a b} \mathscr{W}_{m n i j} +
+            \bbox[5px,border:3px solid red]{\frac{1}{2} \sum_{e f} \tau_{i j}^{e f} \mathscr{W}_{a b e f}} \\
+            &+P_{-}(i j) P_{-}(a b) \sum_{m e}\left(t_{i m}^{a e} \mathscr{W}_{m b e j}-t_{i}^{e} t_{m}^{a}\langle m b
+            \| e
+            j\rangle\right) \\
+            &+P_{-}(i j) \sum_{e} t_{i}^{e}\langle a b \| e j\rangle-P_{-}(a b) \sum_{m} t_{m}^{a}\langle m b \| i
+            j\rangle
+            \end{aligned}
+            $$
+        </div>
+    </div>
+
+    <div class="r-stack">
+        <p class="fragment fade-in-then-out" data-fragment-index=4>What's our bottleneck here?</p>
+        <p class="fragment fade-in-then-out" data-fragment-index=5>What's it's complexity? i.e. O(?)</p>
+        <p class="fragment fade-in-then-out" data-fragment-index=6>\( O(N_o^2N_v^4) \rightarrow O(N^6) \)</p>
+    </div>
+</section>

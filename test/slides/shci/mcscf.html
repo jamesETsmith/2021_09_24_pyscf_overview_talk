@@ -1,0 +1,46 @@
+<h1>Orbital Optimization</h1>
+<br>
+<span style="font-size: 0.75em;">
+
+    <ul>
+        <!-- <li>W/ CASCI wave functions, we've cut the cost compared to FCI, but lost some accuracy</li> -->
+        <!-- <li class="fragment">CASCI misses some of E<sub>corr.</sub></li> -->
+        <!-- <li class="fragment">How can we recoup some of E<sub>corr.</sub>?</li> -->
+        <li class="fragment">Optimizing orbitals and CI coefficients
+            <ul>
+                <li>Orbitals are now optimal for a <b>set</b> of configurations rather than one</li>
+                <li>i.e. <u>multireference</u></li>
+            </ul>
+        </li>
+
+        <li class="fragment">CASSCF</li>
+
+    </ul>
+
+    <span class="fragment">
+        $$
+        \ket{\boldsymbol{\kappa},\textbf{C}} =
+        \text{exp}(-\hat{\kappa})
+        \sum_i C_i \ket{i}
+
+        \quad\quad \text{solve for } C_i \text{ and } \kappa
+        $$
+    </span>
+
+    <div style="text-align: left;" class="fragment">
+        <ul>
+            <li>We can use HCI to solve for \(\{ C_i \}\)</li>
+            <table style="border-collapse: collapse !important;">
+                <tr>
+                    <td style="border:0px solid black;">Variational <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </td>
+                    <td style="border:0px solid black;"><b>vHCISCF</b></td>
+                </tr>
+                <tr>
+                    <td>Variational + PT <i class="fa fa-arrow-right" aria-hidden="true"></i></td>
+                    <td><b>HCISCF </b></td>
+                </tr>
+            </table>
+        </ul>
+    </div>
+</span>

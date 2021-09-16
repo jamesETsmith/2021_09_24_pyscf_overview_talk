@@ -1,0 +1,53 @@
+<h1>Working Smarter, Not Harder</h1>
+<div style="display: flex;">
+
+    <div class="col">
+        <img style="height:300px;" src="figs/SCI/e_v_dets.png">
+        <p>
+            E<sub>corr.</sub> = E<sub>FCI</sub> - E<sub>HF</sub>
+        </p>
+    </div>
+    <div class="col">
+        <br>
+        <ul>
+            <!-- <li class='fragment'>Not all configurations are created equal</li> -->
+            <li class="fragment">A small fraction of configurations are responsible for the majority of the
+                correlation energy</li>
+            <li class="fragment">We only want to treat the <em>important</em> configurations
+                exactly</li>
+            <li class="fragment">How do we know which configurations are important (without solving the full
+                problem)?
+            </li>
+            <li class="fragment">Selected CI: iteratively grow a set of <em>important</em> configurations and treat
+                the remainder approximately (usually with PT)</li>
+            <!-- <li class="fragment" style="border:3px solid rgb(32, 190, 0); border-radius: 5px; padding-left:10px;">
+                    Heat-bath CI (HCI) algorithm grows this set <b>efficiently</b></li>
+                <li class="fragment" style="border:3px solid rgb(32, 190, 0); border-radius: 5px; padding-left:10px;">
+                    Can correlate many more orbitals than FCI</li>
+                <li class="fragment">In HCI, we control accuracy with \( \epsilon_1 \) (smaller is more accurate)</li> -->
+        </ul>
+    </div>
+</div>
+
+<aside class="notes">
+    <ul>
+        <li>It turns out in an FCI wave function, that most of the configurations aren't important. Only a small
+            fraction of the configurations are responsible for the majority of the correlation energy.</li>
+        <li>Which means that we're spending a lot of "precious" computational resources on configurations that
+            aren't that important.</li>
+        <li>But the problem is: how can we know which configurations are the important ones without solving the full
+            problem?</li>
+        <li>Enter the "selected" CI methods, which iteratively grow a set of important configurations and treat the
+            remainder perturbatively.</li>
+        <li>Our work focuses on a particular flavor of these methods called Heat-bath CI (HCI), where we grow this
+            set efficiently.</li>
+        <li>In practice, this means that we can correlate many more electrons than FCI.</li>
+        <li>FCI/CASCI is limited to correlating around 22e in 22o, we have treated systems with almost two hundred
+            orbitals.</li>
+        <li>Finally, a bit of jargon that I need to introduce. In HCI we use a single parameter \( \epsilon_1 \).
+            Just like in experiments we have little knobs to adjust the settings and \( \epsilon_1 \) is our little
+            knob.</li>
+        <li>We can continuously tune all the way from HF to FCI, which a nice feature, and throughout the rest of
+            the talk, we will show convergence to the FCI answer.</li>
+    </ul>
+</aside>

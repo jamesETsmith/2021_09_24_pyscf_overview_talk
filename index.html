@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>PySCF</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/CCX.css" id="theme">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<link rel="icon" href="figs/pyscf_thumbnail.png" style="background: white;">
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- ********* -->
+			<!-- TITLE     -->
+			<!-- ********* -->
+			<section>
+
+				<img src="figs/pyscf-logo.svg">
+
+				<p>Python Simulations of Chemistry Framework</p>
+
+
+				<div class="cols">
+					<div class="col">
+						<div style="height: 200px;" class='viewer_3Dmoljs' data-datatype='pdb'
+							data-backgroundcolor='0xf4f4f4' data-href='figs/fe_pdi/fe_pdi.pdb'
+							data-style='stick;sphere:radius~0.5;' data-spin="axis:y">
+						</div>
+					</div>
+
+					<div class="col">
+						<div style="height: 200px;" class='viewer_3Dmoljs' data-datatype='cube'
+							data-backgroundcolor='0xf4f4f4' data-href='figs/fe_pdi/test.cube'
+							data-style='stick;sphere:radius~0.5;' data-spin="axis:y">
+						</div>
+					</div>
+				</div>
+
+
+
+			</section>
+
+			<!-- Intro -->
+
+			<section data-external="slides/intro/thank_you.html" data-background-image="figs/CCQ_Full_Logo.png"
+				data-background-size="200px" data-background-position="bottom 100px right 100px"></section>
+
+			<!-- Table of Contents -->
+			<section data-external="slides/intro/outline.html" data-background-image="figs/CCQ_Full_Logo.png"
+				data-background-size="200px" data-background-position="bottom 100px right 100px">
+			</section>
+
+
+			<!-- Conclusion -->
+			<section data-external="slides/conclusion/wrap_up.html" data-background-image="figs/CCQ_Full_Logo.png"
+				data-background-size="200px" data-background-position="bottom 100px right 100px"></section>
+
+
+			<!-- <div class="cols">
+				<div class="col">
+
+					<div style="height: 300px; width: 100%;" class='viewer_3Dmoljs' data-datatype='pdb'
+						data-backgroundcolor='0xf4f4f4' data-href='figs/fe_pdi/fe_pdi.pdb'
+						data-style='stick;sphere:radius~0.5;' data-spin="axis:">
+					</div>
+				</div>
+
+				<div class="col">
+
+					<div style="height: 300px; width: 100%;" class='viewer_3Dmoljs' data-datatype='cube'
+						data-backgroundcolor='0xf0ff0f' data-href='figs/fe_pdi/test.cube'
+						data-style='stick;sphere:radius~0.5;' data-surface="opacity:0.8;colorscheme:whiteCarbon;"
+						data-spin="axis:x">
+					</div>
+				</div>
+			</div> -->
+
+		</div>
+	</div>
+
+	<!-- Load plugins and few other things -->
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/external/external.js"></script>
+	<script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			center: false,
+			slideNumber: true,
+			math: {
+				mathjax: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+				config: 'TeX-AMS_HTML-full',
+				TeX: { Macros: { RR: "{\\bf R}" }, packages: ["physics", "color"] },
+			},
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
+			dependencies: [
+				{ src: 'plugin/external/external.js', condition: function () { return !!document.querySelector('[data-external]'); } },
+			],
+		}); // End Reveal.initialize()
+	</script>
+</body>
+
+</html>
