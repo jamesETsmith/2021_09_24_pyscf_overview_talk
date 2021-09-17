@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>PySCF</title>
+	<title>PySCF Software Talk</title>
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
@@ -37,32 +37,91 @@
 				<div class="cols">
 					<div class="col">
 						<div style="height: 200px;" class='viewer_3Dmoljs' data-datatype='pdb'
-							data-backgroundcolor='0xf4f4f4' data-href='figs/fe_pdi/fe_pdi.pdb'
+							data-backgroundcolor='0xf4f4f4' data-href='figs/molecules/fe_pdi.pdb'
 							data-style='stick;sphere:radius~0.5;' data-spin="axis:y">
 						</div>
 					</div>
 
 					<div class="col">
-						<div style="height: 200px;" class='viewer_3Dmoljs' data-datatype='cube'
-							data-backgroundcolor='0xf4f4f4' data-href='figs/fe_pdi/test.cube'
+						<div style="height: 200px;" class='viewer_3Dmoljs' data-datatype='xyz'
+							data-backgroundcolor='0xf4f4f4' data-href='figs/molecules/nv-.xyz'
 							data-style='stick;sphere:radius~0.5;' data-spin="axis:y">
 						</div>
 					</div>
 				</div>
 
 
-
 			</section>
-
-			<!-- Intro -->
 
 			<section data-external="slides/intro/thank_you.html" data-background-image="figs/CCQ_Full_Logo.png"
 				data-background-size="200px" data-background-position="bottom 100px right 100px"></section>
+
 
 			<!-- Table of Contents -->
 			<section data-external="slides/intro/outline.html" data-background-image="figs/CCQ_Full_Logo.png"
 				data-background-size="200px" data-background-position="bottom 100px right 100px">
 			</section>
+
+
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>What does PySCF do?</h1>
+			</section>
+
+
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>PySCF Examples</h1>
+			</section>
+
+
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>What is the state of the art?</h1>
+			</section>
+
+
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>How can I get PySCF?</h1>
+
+				<div class="r-stack">
+					<div class="fragment fade-out" data-fragment-index=0>
+						<p>Option 1: Using <code>pip</code></p>
+						<pre><code data-trim class="language-bash">
+								pip install pyscf
+							</code></pre>
+					</div>
+
+					<div class="fragment fade-in-then-out" data-fragment-index=0>
+						<p>Option 2: Using <code>pip</code> to installing the latest version</p>
+						<pre><code class="language-bash">pip install -e git+https://github.com/pyscf/pyscf.git</code></pre>
+					</div>
+
+					<div class="fragment fade-in" data-fragment-index=1>
+						<p>Option 3: Build PySCF from sources</p>
+						<div style="font-size: 0.75em;">
+							<p>Requirements:</p>
+							<ul>
+								<li>C and Fortran Compiler</li>
+								<li>BLAS</li>
+								<li>CMake</li>
+								<li>Python 3, NumPy, SciPy, h5py</li>
+							</ul>
+						</div>
+
+						<pre><code  class="language-bash">
+git clone https://github.com/pyscf/pyscf.git
+cd pyscf/pyscf/lib
+cmake -B build
+cmake --build build --parallel
+							</code></pre>
+					</div>
+				</div>
+			</section>
+
+
+
 
 
 			<!-- Conclusion -->
