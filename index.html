@@ -62,16 +62,59 @@
 				data-background-size="200px" data-background-position="bottom 100px right 100px">
 			</section>
 
-
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>What does PySCF do?</h1>
-			</section>
 
+				Almost exclusively concerned with generic two-body Hamiltonians:
+
+				\[
+				\hat{\text{H}} =
+				\sum_{pq} h_{pq} \hat{a}_p^\dagger \hat{a}_q +
+				\sum_{pqrs} V_{pqrs} \hat{a}_p^\dagger \hat{a}_q \hat{a}_r^\dagger \hat{a}_s
+				\]
+
+				<p class="fragment">Special forms (e.g. sparsity of V) are rarely exploited.</p>
+
+				<p class="fragment">Users can provide \(h_{pq} \) and \( V_{pqrs} \)</p>
+
+				<p class="fragment">Several basis options: Gaussian-type orbitals (GTOs) for molecules and solids
+					<b>and</b> plane-wave
+				</p>
+			</section>
 
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
-				<h1>PySCF Examples</h1>
+				<h1>What does PySCF do (pt. 2)?</h1>
+				<ul>
+					<li>Energies (ground and excited state)</li>
+					<li class="fragment">Forces and geometry optimization</li>
+					<li class="fragment">Response properties (e.g. dipole moments)</li>
+					<li class="fragment">Growing support for spectroscopic properties</li>
+				</ul>
+
+				TODO insert some figures showing these things
+
+			</section>
+
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Design Philosophy</h1>
+				<ul>
+					<li>Primarily meant to facilitate method development</li>
+					<li class="fragment">90% Python and 10% C</li>
+					<li class="fragment">Since inception, our goal has been to treat molecules and solids on equal
+						footing
+					</li>
+				</ul>
+			</section>
+
+			<section data-external="slides/simple_code_examples1.html" data-background-image="figs/CCQ_Full_Logo.png"
+				data-background-size="200px" data-background-position="bottom 100px right 100px">
+			</section>
+
+			<section data-external="slides/simple_code_examples2.html" data-background-image="figs/CCQ_Full_Logo.png"
+				data-background-size="200px" data-background-position="bottom 100px right 100px">
 			</section>
 
 
@@ -121,32 +164,53 @@ cmake --build build --parallel
 			</section>
 
 
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Open Source Community</h1>
+
+				<img src="figs/pyscf_github_stars.png">
+				<div class="cols">
+					<div class="col">
+						<img src="figs/pyscf_github_users.png">
+					</div>
+					<div class="col">
+						<img src="figs/pyscf_github_contrib.png">
+					</div>
+				</div>
+
+			</section>
 
 
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Impact</h1>
+
+				<img width=75% src="figs/pyscf_wire_paper_ss.png">
+				<img width=75% src="figs/pyscf_jcp_paper_ss.png">
+
+			</section>
+
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Documentation</h1>
+
+				<iframe width=100% height=500px src="https://pyscf.org/user.html"></iframe>
+
+			</section>
+
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Examples</h1>
+
+				<img width=100% src="figs/pyscf_examples.png">
+
+			</section>
 
 			<!-- Conclusion -->
 			<section data-external="slides/conclusion/wrap_up.html" data-background-image="figs/CCQ_Full_Logo.png"
 				data-background-size="200px" data-background-position="bottom 100px right 100px"></section>
-
-
-			<!-- <div class="cols">
-				<div class="col">
-
-					<div style="height: 300px; width: 100%;" class='viewer_3Dmoljs' data-datatype='pdb'
-						data-backgroundcolor='0xf4f4f4' data-href='figs/fe_pdi/fe_pdi.pdb'
-						data-style='stick;sphere:radius~0.5;' data-spin="axis:">
-					</div>
-				</div>
-
-				<div class="col">
-
-					<div style="height: 300px; width: 100%;" class='viewer_3Dmoljs' data-datatype='cube'
-						data-backgroundcolor='0xf0ff0f' data-href='figs/fe_pdi/test.cube'
-						data-style='stick;sphere:radius~0.5;' data-surface="opacity:0.8;colorscheme:whiteCarbon;"
-						data-spin="axis:x">
-					</div>
-				</div>
-			</div> -->
 
 		</div>
 	</div>

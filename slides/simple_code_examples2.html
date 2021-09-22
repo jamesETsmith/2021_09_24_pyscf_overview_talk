@@ -1,0 +1,56 @@
+<h1>PySCF Examples</h1>
+
+<div class="cols">
+    <div class="col">
+        <u>Molecular</u>
+        <pre><code class="language-python" style="max-height:100% !important" data-line-numbers="1">from pyscf import gto, scf, cc
+
+# Setup molecule
+mol = gto.Mole()
+
+
+
+
+mol.atom = """
+C 0.00 0.00 0.00
+C 1.68 1.68 1.68"""
+mol.basis = "cc-pvdz"
+
+mol.build()
+
+# Run HF
+
+my_mf = scf.HF(mol)
+hf_energy = my_mf.kernel()
+
+# Run Coupled Cluster
+my_cc = cc.CCSD(my_mf)
+cc_energy = cc.kernel()</code></pre>
+    </div>
+    <div class='col'>
+        <u>Solid</u>
+        <pre><code class="language-python" style="max-height:100% !important" data-line-numbers="1">from pyscf.pbc import gto, scf, cc
+    
+# Setup molecule
+cell = gto.Mole()
+cell.a = """
+0.00 3.37 3.37
+3.37 0.00 3.37
+3.37 3.37 0.00"""
+cell.atom = """
+C 0.00 0.00 0.00
+C 1.68 1.68 1.68"""
+cell.basis  = "cc-pvdz"
+cell.pseudo = "gth-pade"
+cell.build()
+
+# Run HF
+cell.make_kpts([2,2,2])
+my_mf = scf.HF(cell, kpts)
+hf_energy = my_mf.kernel()
+
+# Run Coupled Cluster
+my_cc = cc.KCCSD(my_mf)
+cc_energy = cc.kernel()</code></pre>
+    </div>
+</div>
