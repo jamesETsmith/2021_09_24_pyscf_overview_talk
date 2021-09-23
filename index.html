@@ -66,7 +66,7 @@
 				data-background-position="bottom 100px right 100px">
 				<h1>What does PySCF do?</h1>
 
-				Almost exclusively concerned with generic two-body Hamiltonians:
+				Mostly generic two-body Hamiltonians:
 
 				\[
 				\hat{\text{H}} =
@@ -76,7 +76,7 @@
 
 				<p class="fragment">Special forms (e.g. sparsity of V) are rarely exploited.</p>
 
-				<p class="fragment">Users can provide \(h_{pq} \) and \( V_{pqrs} \)</p>
+				<p class="fragment">PySCF calculates \(h_{pq} \) and \( V_{pqrs} \) or users can provide them</p>
 
 				<p class="fragment">Several basis options: Gaussian-type orbitals (GTOs) for molecules and solids
 					<b>and</b> plane-wave
@@ -93,20 +93,34 @@
 					<li class="fragment">Growing support for spectroscopic properties</li>
 				</ul>
 
-				TODO insert some figures showing these things
-
+				<p>TODO insert some figures showing these things
+				</p>
 			</section>
 
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>Design Philosophy</h1>
 				<ul>
-					<li>Primarily meant to facilitate method development</li>
-					<li class="fragment">90% Python and 10% C</li>
-					<li class="fragment">Since inception, our goal has been to treat molecules and solids on equal
+					<li>A sandbox, but a performant one</li>
+					<li>Since inception, our goal has been to treat molecules and solids on equal
 						footing
 					</li>
 				</ul>
+
+				<pre style="font-size: 0.5em;"><code>-------------|----------------------------------------------------
+Language     |  files          blank        comment           code
+-------------|----------------------------------------------------
+Python       |    742          33356          42117         170260
+C            |     65           2888           2825          41259
+Lisp         |      5             78            145            886
+C/C++ Header |     18            176            250            640
+CMake        |     12             68            203            268
+Fortran 90   |      2             60             56            159
+Bourne Shell |      5             20             25             81
+-------------|----------------------------------------------------
+SUM:         |    851          36652          45628         213574
+-------------|----------------------------------------------------
+				</code></pre>
 			</section>
 
 			<section data-external="slides/simple_code_examples1.html" data-background-image="figs/CCQ_Full_Logo.png"
@@ -121,6 +135,32 @@
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>What is the state of the art?</h1>
+			</section>
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Custom Hamiltonians</h1>
+				<pre><code data-trim class="language-python" style="max-height:100% !important; width: 100%;">h1 = numpy.zeros((n,n))
+for i in range(n-1):
+	h1[i,i+1] = h1[i+1,i] = -1.0
+h1[n-1,0] = h1[0,n-1] = -1.0
+eri = numpy.zeros((n,n,n,n))
+for i in range(n):
+	eri[i,i,i,i] = 2.0
+
+mf = scf.RHF(mol)
+mf.get_hcore = lambda *args: h1
+mf.get_ovlp = lambda *args: numpy.eye(n)
+mf.kernel()
+
+mymp = mp.MP2(mf)
+mymp.kernel()
+
+mycc = cc.CCSD(mf)
+mycc.kernel()
+
+mycas = mcscf.CASSCF(mf, 4, 4)
+mycas.kernel()</code></pre>
 			</section>
 
 
@@ -153,8 +193,7 @@
 							</ul>
 						</div>
 
-						<pre><code  class="language-bash">
-git clone https://github.com/pyscf/pyscf.git
+						<pre><code  class="language-bash">git clone https://github.com/pyscf/pyscf.git
 cd pyscf/pyscf/lib
 cmake -B build
 cmake --build build --parallel
@@ -177,40 +216,157 @@ cmake --build build --parallel
 						<img src="figs/pyscf_github_contrib.png">
 					</div>
 				</div>
-
 			</section>
+
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Interfaces with PySCF</h1>
+				<div class="cols">
+					<div class="col">
+						<u>DMRG</u>
+						<br>
+						Block (Chan)
+						<br>
+						CheMPS2 (Wouters)
+					</div>
+					<div class="col">
+						<u>Selected CI</u>
+						<br>Arrow (Umrigar)
+						<br>Dice (Sharma)
+					</div>
+				</div>
+				<br>
+				<div class="cols">
+					<div class="col">
+						<u>QMC</u>
+						<br>AFQMC (Morales/Zhang)
+						<br>QMCPACK (LLNL)
+						<br>NECI (Alavi)
+						<br>Hande (Thom)
+					</div>
+					<div class="col">
+						<u>NN VMC</u>
+						<br>FermiNet (Deepmind)
+						<br>DeepQMC/PauliNet (Noe)
+						<br>NetKet (Carleo)
+					</div>
+					<div class="col">
+						<u>Quantum Computing</u>
+						<br>OpenFermion
+						<br>Qiskit (IBM)
+						<br>OpenQemist (1Qbit)
+					</div>
+				</div>
+				<br>
+				<div class="fragment">
+					<u>Somewhere in the future?</u>
+					<br>TRIQS
+					<br>ITensor
+					<!-- <br>LAMMPS? -->
+				</div>
+			</section>
+
+
 
 
 			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>Impact</h1>
-
 				<img width=75% src="figs/pyscf_wire_paper_ss.png">
 				<img width=75% src="figs/pyscf_jcp_paper_ss.png">
-
 			</section>
+
 
 
 			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>Documentation</h1>
+				<img src="figs/pyscf_docs.png">
+			</section>
 
-				<iframe width=100% height=500px src="https://pyscf.org/user.html"></iframe>
-
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Documentation</h1>
+				<iframe width=1400px height=500px src="https://pyscf.org/user.html"></iframe>
 			</section>
 
 
 			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>Examples</h1>
-
-				<img width=100% src="figs/pyscf_examples.png">
-
+				<div class="cols">
+					<div class="col"><img width=100% src=" figs/gto_examples.png"></div>
+					<div class="col"><img width=100% src="figs/scf_examples.png"></div>
+					<div class="col"><img width=100% src="figs/cc_examples.png"></div>
+					<div class="col"><img width=100% src="figs/local_orbs_examples.png"></div>
+					<div class="col"><img width=100% src="figs/mcscf_examples.png"></div>
+				</div>
+				<p>Over 350 examples!!</p>
 			</section>
 
 			<!-- Conclusion -->
-			<section data-external="slides/conclusion/wrap_up.html" data-background-image="figs/CCQ_Full_Logo.png"
-				data-background-size="200px" data-background-position="bottom 100px right 100px"></section>
+			<section data-background-image="figs /CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<img width=50% src="figs/pyscf-logo.svg">
+
+				<div class="cols">
+					<div class="col">
+						<!-- <div style="height: 200px; width:60%;" class='viewer_3Dmoljs' data-datatype='cube'
+							data-backgroundcolor='0xf4f4f4' data-href='figs/molecules/caffeine.cube'
+							data-style='stick;sphere:radius~0.5;' data-spin="axis:y"
+							data-surface="opacity:0.9;iso:0.00001">
+						</div> -->
+						<div style="position:relative; text-align:center; color:white;">
+							<!-- https://www.vhv.rs/download/imTxRTm_iceberg-ocean-seawater-clip-art-iceberg-clipart-png/ -->
+							<img src="figs/iceberg.png">
+							<div style="position: absolute; top:10%;left:15%; color:black">HF</div>
+							<div style="position: absolute; top:17%;left:40%; color:black">MP2</div>
+							<div style="position: absolute; top:25%;left:20%; color:black">CCSD</div>
+							<div style="position: absolute; top:12%;left:70%; color:black">CASSCF</div>
+							<div style="position: absolute; top:30%;left:63%; color:black">DFT</div>
+
+							<div style="position: absolute; top:60%;left:75%; color:white">GW</div>
+							<div style="position: absolute; top:80%;left:5%; color:white">TDDFT</div>
+							<div style="position: absolute; top:60%;left:20%; color:white">EOM-CCSD</div>
+							<div style="position: absolute; top:45%;left:50%; color:white">MRPT</div>
+							<div style="position: absolute; top:80%;left:80%; color:white">ADC</div>
+							<div style="position: absolute; top:45%;left:15%; color:white">FCI</div>
+
+							<div style="position: absolute; top:75%;left:35%; color:white">MUCH MORE!</div>
+
+
+
+
+
+						</div>
+
+
+					</div>
+					<div class="col">
+						<ul>
+							<li>Multiple levels of theory to calculate properties</li>
+							<li>If you see something you want and it's not in PySCF already, talk to me!</li>
+							<li>Let us know if you want to get involved!</li>
+							<li>Hackathon for CCQ codes to accelerate interfaces?!?</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!--  -->
+			<!-- EXTRA SLIDES -->
+			<!--  -->
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<p style="font-size: 3em;">EXTRA SLIDES</p>
+			</section>
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Capabilities in Detail</h1>
+				<img width=80% src="figs/pyscf_capabilities.png">
+			</section>
 
 		</div>
 	</div>

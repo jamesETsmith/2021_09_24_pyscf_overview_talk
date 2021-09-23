@@ -26,25 +26,35 @@ Of course, please let us know if we can be helpful in any way with your talk and
 
 
 # TODO
-- Add github screensots
-- Show related projects
-- Sandbox, but more efficient
-- Use `cloc` to show breakdown of pyscf
-- Better sense of timings
-- Demo of properties (orbitals, density, spin density, AO population)
-- Talk about MCSCF?
-- Show MPI4PySCF
-- Show several slides of the docs
-- Show input files early
-- Show more complicated theory and then show input files for them
-- Show slide with github issues after install instructions
-- Show thermo things
-- Limit text on slides
-- PySCF LAMMPS?
-- Mention potential interfaces to other CCQ codes
-- Google collab/jupyter notebook demo
-- Spin orbit coupling
-- Non-collinear spin things (GHF, GKS, GCCSD)
-- 
+- [ ] Limit text on slides
+- [ ] Show input files early
 
+- [X] Screenshots of GitHub for examples
+- [X] Add github screensots
+- [X] SLIDE 4: Integrals can go both ways
+- [X] Show several slides of the docs
+- [X] Use `cloc` to show breakdown of pyscf
+- [X] GITHUB: STARS, FORKS, CONTRIB, USERS
+- [X] Google Scholar citations
+- [X] Caveat method development objective on slide 6, make sure people know that it's performant
+- [X] Show related projects
+- [X] Sandbox, but more efficient
+- [X] PySCF LAMMPS?
+- [X] Mention potential interfaces to other CCQ codes
+- [X] Add OpenMP and MPI description on slide 6
+- [X] Show systems sizes for state of the art
+- [X] Multiple levels of theory to calculate properties (energy, gradients, etc)
+- [X] Implementation done for lots of things, but the second stage of "software refinement" is on a request basis because we're a volunteer organization
+- [X] Welcome help and support from CCQ
+- [X] If you want to use it, but we're missing something, come talk to me
+- [X] Hackathon invitation at the end?
+
+- [ ] Demo of properties (orbitals, density, spin density, AO population)
+- [ ] Show MPI4PySCF
+- [ ] Show thermo things
+- [ ] Spin orbit coupling
+- [ ] Non-collinear spin things (GHF, GKS, GCCSD)
+- [ ] TALK ABOUT AB INITIO INTEGRALS AS NUMPY ARRAYS (HDF5 too if you don't like Python)
+- [ ] Do you want to move from model to ab initio PySCF is the way to go
+- [ ] See if we can get desktop version of docs
 
