@@ -91,11 +91,12 @@
 					<li class="fragment">Forces and geometry optimization</li>
 					<li class="fragment">Response properties (e.g. dipole moments)</li>
 					<li class="fragment">Growing support for spectroscopic properties</li>
+					<li class="fragment">Relativstic effects and non-collinear spins</li>
+					<li class="fragment">Users can study systems <u>at many levels of theory</u></li>
 				</ul>
 
-				<p>TODO insert some figures showing these things
-				</p>
 			</section>
+
 
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
@@ -131,10 +132,19 @@ SUM:         |    851          36652          45628         213574
 				data-background-size="200px" data-background-position="bottom 100px right 100px">
 			</section>
 
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Correlated Methods</h1>
+				<img width=65% src="figs/acene-crystal.png">
+				<p>We have <b>a lot</b> of correlated methods that work well in molecules <b>and</b> solids</p>
+				<p style="font-size: 0.75em;">Xiao Wang</p>
+			</section>
 
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
-				<h1>What is the state of the art?</h1>
+				<h1>And now... plane waves</h1>
+				<img src="figs/pw_pyscf.png">
+				<p style="font-size: 0.75em;">Hongzhou Ye and Verena Neufeld</p>
 			</section>
 
 			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
@@ -162,6 +172,14 @@ mycc.kernel()
 mycas = mcscf.CASSCF(mf, 4, 4)
 mycas.kernel()</code></pre>
 			</section>
+
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>MPI4PySCF</h1>
+				<img src="figs/mpi4pyscf.png">
+			</section>
+
+
 
 
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
@@ -332,6 +350,7 @@ cmake --build build --parallel
 							<div style="position: absolute; top:45%;left:50%; color:white">MRPT</div>
 							<div style="position: absolute; top:80%;left:80%; color:white">ADC</div>
 							<div style="position: absolute; top:45%;left:15%; color:white">FCI</div>
+							<div style="position: absolute; top:45%;left:79%; color:white">X2C</div>
 
 							<div style="position: absolute; top:75%;left:35%; color:white">MUCH MORE!</div>
 

@@ -48,9 +48,9 @@ Of course, please let us know if we can be helpful in any way with your talk and
 - [X] Welcome help and support from CCQ
 - [X] If you want to use it, but we're missing something, come talk to me
 - [X] Hackathon invitation at the end?
+- [X] Show MPI4PySCF
 
 - [ ] Demo of properties (orbitals, density, spin density, AO population)
-- [ ] Show MPI4PySCF
 - [ ] Show thermo things
 - [ ] Spin orbit coupling
 - [ ] Non-collinear spin things (GHF, GKS, GCCSD)
