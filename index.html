@@ -58,8 +58,17 @@
 
 
 			<!-- Table of Contents -->
-			<section data-external="slides/intro/outline.html" data-background-image="figs/CCQ_Full_Logo.png"
-				data-background-size="200px" data-background-position="bottom 100px right 100px">
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Outline</h1>
+
+				<ol>
+					<li>What is PySCF?</li>
+					<li class="fragment">Feature Highlights</li>
+					<li class="fragment">How does PySCF connect to other (CCQ) projects?</li>
+					<li class="fragment">Installation</li>
+					<li class="fragment">Open-source community and documentation</li>
+				</ol>
 			</section>
 
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
@@ -101,14 +110,15 @@
 			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>Design Philosophy</h1>
-				<ul>
-					<li>A sandbox, but a performant one</li>
-					<li>Since inception, our goal has been to treat molecules and solids on equal
-						footing
-					</li>
-				</ul>
 
-				<pre style="font-size: 0.5em;"><code>-------------|----------------------------------------------------
+				<div class="r-stack">
+					<span class="fragment fade-out" data-fragment-index="0">A sandbox, but a performant one</span>
+					<span class="fragment fade-in" data-fragment-index="0">Python user interface with a C
+						back-end</span>
+				</div>
+
+				<div class="fragment" data-fragment-index=0>
+					<pre style="font-size: 0.5em;"><code>-------------|----------------------------------------------------
 Language     |  files          blank        comment           code
 -------------|----------------------------------------------------
 Python       |    742          33356          42117         170260
@@ -122,6 +132,10 @@ Bourne Shell |      5             20             25             81
 SUM:         |    851          36652          45628         213574
 -------------|----------------------------------------------------
 				</code></pre>
+				</div>
+				<span class="fragment" data-fragment-index="1">Since inception, our goal has been to treat molecules and
+					solids on equal
+					footing</span>
 			</section>
 
 			<section data-external="slides/simple_code_examples1.html" data-background-image="figs/CCQ_Full_Logo.png"
@@ -181,62 +195,6 @@ mycas.kernel()</code></pre>
 
 
 
-
-			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
-				data-background-position="bottom 100px right 100px">
-				<h1>How can I get PySCF?</h1>
-
-				<div class="r-stack">
-					<div class="fragment fade-out" data-fragment-index=0>
-						<p>Option 1: Using <code>pip</code></p>
-						<pre><code data-trim class="language-bash">
-								pip install pyscf
-							</code></pre>
-					</div>
-
-					<div class="fragment fade-in-then-out" data-fragment-index=0>
-						<p>Option 2: Using <code>pip</code> to installing the latest version</p>
-						<pre><code class="language-bash">pip install -e git+https://github.com/pyscf/pyscf.git</code></pre>
-					</div>
-
-					<div class="fragment fade-in" data-fragment-index=1>
-						<p>Option 3: Build PySCF from sources</p>
-						<div style="font-size: 0.75em;">
-							<p>Requirements:</p>
-							<ul>
-								<li>C and Fortran Compiler</li>
-								<li>BLAS</li>
-								<li>CMake</li>
-								<li>Python 3, NumPy, SciPy, h5py</li>
-							</ul>
-						</div>
-
-						<pre><code  class="language-bash">git clone https://github.com/pyscf/pyscf.git
-cd pyscf/pyscf/lib
-cmake -B build
-cmake --build build --parallel
-							</code></pre>
-					</div>
-				</div>
-			</section>
-
-
-			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
-				data-background-position="bottom 100px right 100px">
-				<h1>Open Source Community</h1>
-
-				<img src="figs/pyscf_github_stars.png">
-				<div class="cols">
-					<div class="col">
-						<img src="figs/pyscf_github_users.png">
-					</div>
-					<div class="col">
-						<img src="figs/pyscf_github_contrib.png">
-					</div>
-				</div>
-			</section>
-
-
 			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
 				<h1>Interfaces with PySCF</h1>
@@ -286,15 +244,43 @@ cmake --build build --parallel
 			</section>
 
 
-
-
-			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+			<section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
 				data-background-position="bottom 100px right 100px">
-				<h1>Impact</h1>
-				<img width=75% src="figs/pyscf_wire_paper_ss.png">
-				<img width=75% src="figs/pyscf_jcp_paper_ss.png">
-			</section>
+				<h1>How can I get PySCF?</h1>
 
+				<div class="r-stack">
+					<div class="fragment fade-out" data-fragment-index=0>
+						<p>Option 1: Using <code>pip</code></p>
+						<pre><code data-trim class="language-bash">
+								pip install pyscf
+							</code></pre>
+					</div>
+
+					<div class="fragment fade-in-then-out" data-fragment-index=0>
+						<p>Option 2: Using <code>pip</code> to installing the latest version</p>
+						<pre><code class="language-bash">pip install -e git+https://github.com/pyscf/pyscf.git</code></pre>
+					</div>
+
+					<div class="fragment fade-in" data-fragment-index=1>
+						<p>Option 3: Build PySCF from sources</p>
+						<div style="font-size: 0.75em;">
+							<p>Requirements:</p>
+							<ul>
+								<li>C and Fortran Compiler</li>
+								<li>BLAS</li>
+								<li>CMake</li>
+								<li>Python 3, NumPy, SciPy, h5py</li>
+							</ul>
+						</div>
+
+						<pre><code  class="language-bash">git clone https://github.com/pyscf/pyscf.git
+cd pyscf/pyscf/lib
+cmake -B build
+cmake --build build --parallel
+							</code></pre>
+					</div>
+				</div>
+			</section>
 
 
 			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
@@ -322,6 +308,29 @@ cmake --build build --parallel
 				</div>
 				<p>Over 350 examples!!</p>
 			</section>
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Open Source Community</h1>
+
+				<img src="figs/pyscf_github_stars.png">
+				<div class="cols">
+					<div class="col">
+						<img src="figs/pyscf_github_users.png">
+					</div>
+					<div class="col">
+						<img src="figs/pyscf_github_contrib.png">
+					</div>
+				</div>
+			</section>
+
+			<section section data-background-image="figs/CCQ_Full_Logo.png" data-background-size="200px"
+				data-background-position="bottom 100px right 100px">
+				<h1>Impact</h1>
+				<img width=75% src="figs/pyscf_wire_paper_ss.png">
+				<img width=75% src="figs/pyscf_jcp_paper_ss.png">
+			</section>
+
 
 			<!-- Conclusion -->
 			<section data-background-image="figs /CCQ_Full_Logo.png" data-background-size="200px"

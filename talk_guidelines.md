@@ -49,11 +49,11 @@ Of course, please let us know if we can be helpful in any way with your talk and
 - [X] If you want to use it, but we're missing something, come talk to me
 - [X] Hackathon invitation at the end?
 - [X] Show MPI4PySCF
+- [X] Spin orbit coupling
+- [X] Non-collinear spin things (GHF, GKS, GCCSD)
 
 - [ ] Demo of properties (orbitals, density, spin density, AO population)
 - [ ] Show thermo things
-- [ ] Spin orbit coupling
-- [ ] Non-collinear spin things (GHF, GKS, GCCSD)
 - [ ] TALK ABOUT AB INITIO INTEGRALS AS NUMPY ARRAYS (HDF5 too if you don't like Python)
 - [ ] Do you want to move from model to ab initio PySCF is the way to go
 - [ ] See if we can get desktop version of docs
